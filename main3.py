@@ -126,18 +126,6 @@ def add_clause(clause_list, clauses, knowledge_dict):
         clauses.append(sorted_clause)
         return False
 
-def sort_by_list_size(list_of_lists):
-    sorted_list = sorted(list_of_lists, key=len)
-    return sorted_list
-
-def sort_inner_lists(list_of_lists):
-    sorted_lists = [sorted(inner_list) for inner_list in list_of_lists]
-    return sorted_lists
-
-def full_sort(list_of_lists):
-    return sort_inner_lists(sort_by_list_size(list_of_lists))
-
-
 # This helps us only do logic on clauses with who are subsets of other clauses
 def have_equivalent_literals(list1, list2):
     # Function to remove '~' from the beginning of a literal, if present
@@ -188,42 +176,6 @@ def resolve(c1, c2, clauses, knowledge_dict):
     if resolved == ors:
         return True
 
-# Finding the first instance of a target length in an array? This returns the position of the target length value so position not value 
-def first_instance_index(list_array, target): 
-    low, high = 0, len(list_array) - 1
-    result = -1
-
-    while low <= high:
-        mid = (low + high) // 2
-        current_number = len(list_array[mid])
-
-        if current_number == target:
-            result = mid  # Store the current index as a potential result
-            high = mid - 1  # Continue searching to the left
-        elif current_number < target:
-            low = mid + 1
-        else:
-            high = mid - 1
-
-    return result
-
-def last_instance_index(list_array, target):
-    low, high = 0, len(list_array) - 1
-    result = -1
-
-    while low <= high:
-        mid = (low + high) // 2
-        current_number = len(list_array[mid])
-
-        if current_number == target:
-            result = mid  # Store the current index as a potential result
-            low = mid + 1  # Continue searching to the right
-        elif current_number < target:
-            low = mid + 1
-        else:
-            high = mid - 1
-
-    return result
 
 def neg(l1, l2):
     if l1 == ('~' + l2) or l2 == ('~' + l1):
