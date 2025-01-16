@@ -1,0 +1,6 @@
+This took a while but not that long either.
+18685. LowTemp NoLeakH2 ReactorUnitSafe V1 V2 ~NoLeak ~NoLeakH1 ~okH1 ~okH2 {18281, 11499}
+18686. NoLeak NoLeakH1 NoLeakH2 ReactorUnitSafe V2 l okH1 ~LowTemp ~V1 {18415, 15077}
+Not Valid
+
+I believe this code is a significant improvement to the two previous iterations.
